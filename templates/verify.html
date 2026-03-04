@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% set active_page = "verify" %}
+
+{% block title %}Certificate Verification | British Global Standards{% endblock %}
+{% block meta_description %}Verify your ISO certificate from British Global Standards. Enter your authorized company code to view and confirm your certificate.{% endblock %}
+
+{% block content %}
+<!-- Page Banner -->
+<section class="page-banner page-banner-solid">
+  <div class="container page-banner-content">
+    <h1>Certificate Verification</h1>
+    <p>Confirm the authenticity of your ISO certification</p>
+  </div>
+</section>
+
+<!-- Verification Section -->
+<section class="section section-white">
+  <div class="container">
+    <div class="verify-wrapper">
+      <div class="verify-card">
+        <div class="verify-card-icon">
+          <i class="fas fa-shield-halved"></i>
+        </div>
+        <h2>Verify Your Certificate</h2>
+        <p class="verify-card-desc">Enter your authorized company verification code below to view and confirm your ISO certificate.</p>
+
+        <div class="verify-input-group">
+          <div class="verify-input-wrapper">
+            <i class="fas fa-key verify-input-icon"></i>
+            <input
+              id="code"
+              type="text"
+              placeholder="Enter company verification code"
+              autocomplete="off"
+              onkeypress="if(event.key==='Enter') verifyCode()"
+            >
+          </div>
+          <button onclick="verifyCode()" class="btn btn-accent btn-verify-action" id="verifyBtn">
+            <span class="btn-text">Verify Certificate</span>
+            <span class="btn-loader hidden">
+              <i class="fas fa-spinner fa-spin"></i>
+            </span>
+          </button>
+        </div>
+
+        <div id="status" class="verify-status"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificate Modal -->
+<div id="certificateModal" class="cert-modal hidden">
+  <div class="cert-modal-backdrop" onclick="closeModal()"></div>
+  <div class="cert-modal-content">
+    <button class="cert-modal-close" onclick="closeModal()">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="cert-modal-header">
+      <div class="cert-modal-badge">
+        <i class="fas fa-check-circle"></i>
+        <span>Access Granted: Certificate Verified</span>
+      </div>
+    </div>
+
+    <div class="cert-modal-body">
+      <div class="cert-image-wrapper" oncontextmenu="return false;">
+        <div class="cert-watermark">CONFIDENTIAL</div>
+        <img
+          id="certImage"
+          src=""
+          alt="Company Certificate"
+          draggable="false"
+          oncontextmenu="return false;"
+          ondragstart="return false;"
+        >
+      </div>
+
+      <div class="cert-modal-info">
+        <i class="fas fa-info-circle"></i>
+        <p>This certificate is view only and cannot be downloaded or saved.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block cta %}{% endblock %}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="theme-color" content="#0a1628">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>{% block title %}ISO Global Standards{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}ISO Global Standards provides ISO certification, inspection, testing, and training services. ISO 9001, 14001, 45001, 27001 and more.{% endblock %}">
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <a href="/" class="header-logo">
+        <img src="/static/images/logo.png" alt="ISO Global Standards">
+      </a>
+
+      <nav class="header-nav" id="headerNav">
+        <a href="/" class="nav-link {% if active_page == 'home' %}active{% endif %}">Home</a>
+        <a href="/certifications" class="nav-link {% if active_page == 'certifications' %}active{% endif %}">Certifications</a>
+        <a href="/about" class="nav-link {% if active_page == 'about' %}active{% endif %}">About</a>
+        <a href="/certificate-verification" class="nav-link {% if active_page == 'verify' %}active{% endif %}">Certificate Verification</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="/" class="mobile-nav-link {% if active_page == 'home' %}active{% endif %}">Home</a>
+      <a href="/certifications" class="mobile-nav-link {% if active_page == 'certifications' %}active{% endif %}">Certifications</a>
+      <a href="/about" class="mobile-nav-link {% if active_page == 'about' %}active{% endif %}">About</a>
+      <a href="/certificate-verification" class="mobile-nav-link {% if active_page == 'verify' %}active{% endif %}">Certificate Verification</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- CTA Section -->
+  {% block cta %}
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <div class="cta-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <h2>Get Certified with International Standards</h2>
+        <p>Strengthen your business with globally recognized ISO certifications. Our team is with you at every step, from initial assessment to final certification.</p>
+        <a href="/certificate-verification" class="btn btn-accent">
+          <i class="fas fa-paper-plane"></i>
+          Verify Your Certificate
+        </a>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="/static/images/logo.png" alt="ISO Global Standards" class="footer-logo">
+          <p>Providing internationally recognized certification, inspection, testing, and training services to organizations across all sectors.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/certifications">Certifications</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/certificate-verification">Verify Certificate</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Certifications</h4>
+          <ul>
+            <li><a href="/certifications">ISO 9001 Quality</a></li>
+            <li><a href="/certifications">ISO 14001 Environment</a></li>
+            <li><a href="/certifications">ISO 45001 Safety</a></li>
+            <li><a href="/certifications">ISO 27001 Security</a></li>
+            <li><a href="/certifications">ISO 22000 Food Safety</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h4>Contact Info</h4>
+          <ul>
+            <li><i class="fas fa-envelope"></i> info@isoglobalstandards.tech</li>
+            <li><i class="fas fa-phone"></i> +44 7389 757378</li>
+            <li><i class="fas fa-map-marker-alt"></i> Iso Global Standards. Inc.
+              USA - Corporate Office : 381 Main Street  
+              P.O Box 1106 East Sandwich.MA 02537</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p>&copy; 2026 ISO Global Standards. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/script.js"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
